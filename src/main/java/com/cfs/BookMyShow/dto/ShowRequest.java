@@ -17,7 +17,7 @@ public class ShowRequest {
     private Long movieId;
     private Long screenId;
     private LocalDate showDate;
-    private LocalTime showTime;
+    private LocalTime startTime;
     private LocalTime endTime;
     private Double ticketPrice;
 }

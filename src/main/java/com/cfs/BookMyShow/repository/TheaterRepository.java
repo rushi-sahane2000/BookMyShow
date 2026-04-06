@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 public interface TheaterRepository  extends JpaRepository<Theater,Long> {
-    List<Theater> findCityById(Long cityId);
+    List<Theater> findByCityId(Long cityId);
 
 
 }
