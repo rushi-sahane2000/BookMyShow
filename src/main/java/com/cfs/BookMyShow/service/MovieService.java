@@ -1,5 +1,6 @@
 package com.cfs.BookMyShow.service;
 
+import com.cfs.BookMyShow.dto.MovieRequest;
 import com.cfs.BookMyShow.entity.Movie;
 import com.cfs.BookMyShow.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,8 +13,19 @@ import java.util.List;
 public class MovieService {
     private final MovieRepository movieRepository;
 
-    public Movie addMovie(Movie movie)
-    {
+    public Movie addMovie(MovieRequest request) {
+
+        Movie movie = Movie.builder()
+                .title(request.getTitle())
+                .description(request.getDescription())
+                .genre(request.getGenre())
+                .language(request.getLanguage())
+                .durationMinutes(request.getDurationInMinutes())
+                .rating(request.getRating())
+                .releaseDate(request.getReleaseDate())
+                .posterUrl(request.getPosterUrl())
+                .build();
+
         return movieRepository.save(movie);
     }
 
@@ -30,7 +42,7 @@ public class MovieService {
 
     public List<Movie> searchByTitle(String title)
     {
-        return  movieRepository.findTitleContainingIgnoreCase(title);
+        return  movieRepository.findByTitleContainingIgnoreCase(title);
     }
     public List<Movie> searchByGenre(String genre)
     {
@@ -38,7 +50,7 @@ public class MovieService {
     }
     public List<Movie> searchByLanguage(String language)
     {
-        return  movieRepository.findTitleContainingIgnoreCase(language);
+        return  movieRepository.findByTitleContainingIgnoreCase(language);
     }
 
     //delete Movie
@@ -52,18 +64,36 @@ public class MovieService {
     }
 
     //Update Movie
-    public Movie updateMovie(Long id,Movie movie)
-    {
-        Movie existringMovie=movieRepository.findById(id)
-                .orElseThrow(()->new RuntimeException("Movie not found with Id"+id));
+    public Movie updateMovie(Long id, MovieRequest request) {
 
-        existringMovie.setTitle(movie.getTitle());
-        existringMovie.setGenre(movie.getGenre());
-        existringMovie.setLanguage(movie.getLanguage());
-        existringMovie.setRating(movie.getRating());
+        Movie existingMovie = movieRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Movie not found with Id " + id));
 
-        return movieRepository.save(existringMovie);
+        if (request.getTitle() != null)
+            existingMovie.setTitle(request.getTitle());
 
+        if (request.getGenre() != null)
+            existingMovie.setGenre(request.getGenre());
+
+        if (request.getLanguage() != null)
+            existingMovie.setLanguage(request.getLanguage());
+
+        if (request.getRating() != null)
+            existingMovie.setRating(request.getRating());
+
+        if (request.getDescription() != null)
+            existingMovie.setDescription(request.getDescription());
+
+        if (request.getDurationInMinutes() != null)
+            existingMovie.setDurationMinutes(request.getDurationInMinutes());
+
+        if (request.getReleaseDate() != null)
+            existingMovie.setReleaseDate(request.getReleaseDate());
+
+        if (request.getPosterUrl() != null)
+            existingMovie.setPosterUrl(request.getPosterUrl());
+
+        return movieRepository.save(existingMovie);
     }
 
 }

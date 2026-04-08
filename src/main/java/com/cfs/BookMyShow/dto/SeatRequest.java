@@ -13,7 +13,7 @@ import lombok.Setter;
 public class SeatRequest {
     private String seatNumber;
     private String row;
-    private String col;
+    private Integer col;
     private SeatType seatType;
     private Long screenId;
 

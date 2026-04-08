@@ -26,6 +26,7 @@ public class Booking {
     @JoinColumn(name = "show_id",nullable = false)
     private Show show;
 
+
     @ManyToMany
     @JoinTable(
             name = "booking_seats",

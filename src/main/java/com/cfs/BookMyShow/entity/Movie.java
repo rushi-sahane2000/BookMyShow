@@ -21,7 +21,8 @@ public class Movie {
     private String description;
     private String genre;
     private String language;
-    private Integer durationInMinutes;
+    @Column(name = "duration_minutes") // Explicitly tell Hibernate the column name
+    private Integer durationMinutes;
     private Double rating;
     private LocalDate releaseDate;
     private String posterUrl;
