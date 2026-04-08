@@ -30,7 +30,7 @@ public class BookingController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Booking>> getALlBookingByUser(@RequestParam Long userId)
+    public ResponseEntity<List<Booking>> getALlBookingByUser(@PathVariable Long userId)
     {
         return  ResponseEntity.ok(bookingService.getALlBookingByUser(userId));
     }
@@ -41,9 +41,10 @@ public class BookingController {
         return  ResponseEntity.ok(bookingService.cancelBooking(bookingId));
     }
 
-    @GetMapping("/show/{showId}")
+    @GetMapping("/show/{showId}/available-seats")
     public ResponseEntity<List<Seat>> getAvailableSeats(@PathVariable Long showId)
     {
         return  ResponseEntity.ok(bookingService.getAvailableSeats(showId));
     }
+
 }

@@ -26,6 +26,7 @@ public class ScreenController {
     @GetMapping
     public ResponseEntity<List<Screen>> getAllScreen()
     {
+
         return  ResponseEntity.ok(screenService.getAllScreen());
     }
 

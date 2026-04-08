@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CityService {
-    private CityRepository cityRepository;
+    private final CityRepository cityRepository;
 
     public City addCity(CityRequest request) {
 
