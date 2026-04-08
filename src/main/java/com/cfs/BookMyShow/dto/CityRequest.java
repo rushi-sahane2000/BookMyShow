@@ -1,0 +1,2 @@
+package com.cfs.BookMyShow.dto;public class CityRequest {
+}
