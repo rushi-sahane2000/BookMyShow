@@ -356,7 +356,7 @@ The application ships with pre-loaded data including:
 
 - Inspired by [BookMyShow](https://www.bookmyshow.com)
 - Movie poster images sourced for demo purposes only
-- Built as a full-stack learning project using the Spring Boot ecosystem
+- Built as a full-stack project using the Spring Boot ecosystem
 
 ---
 
