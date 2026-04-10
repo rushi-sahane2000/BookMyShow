@@ -1,6 +1,6 @@
 # 🎬 BookMyShow — Movie Ticket Booking System
 
-A full-stack movie ticket booking web application inspired by BookMyShow, built with **Spring Boot**, **MySQL**, **JPA/Hibernate**, **Lombok**, and a vanilla **HTML/CSS/JavaScript** frontend.
+A full-stack movie ticket booking web application inspired by BookMyShow, built with **Spring Boot**, **MySQL**, **JPA/Hibernate**, **Lombok**, and  **HTML/CSS/JavaScript** frontend.
 
 ---
 
